@@ -87,15 +87,63 @@ body {
     font-size: 100%;
     min-height: 100vh;
     background-color: var(--blanco);
+    color: var(--blanco);
+
     font-smooth: always;
     -webkit-font-smoothing: antialiased;
     -moz-osc-font-smoothing: grayscale;
 }
 
+.circulos{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: lightblue;
+    z-index: 1;
+    filter: blur(50px);
+    animation: circulo1 20s linear infinite both;
+}
+.circulos .circulo{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    animation: circulo1 100s linear infinite both;
+}
+.circulos .circulo1{
+   top: 0%;
+   left: 0%;
+} 
+.circulos .circulo1 .path{
+    fill: seagreen; 
+ } 
+.circulos .circulo2{
+    top: 0%;
+    right: 0%;
+}
+.circulos .circulo2 .path{
+    fill: rgb(129, 19, 139);
+}
+.circulos .circulo3{
+    bottom: 0%;
+    left: 0%;
+}
+.circulos .circulo3 .path{
+    fill: rgb(244, 205, 76);
+}
+.circulos .circulo4{
+    bottom: 0%;
+    right: 0%;
+}
+.circulos .circulo4 .path{
+    fill: rgb(0, 59, 155);
+}
+
 .header{
     width: 100%;
     min-width: 15em;
-    background-color: lightblue;
+    /* background-color: lightblue; */
     padding: 1em 2em;
 
     display: flex;
@@ -121,15 +169,17 @@ body {
 .header .li .a{}
 
 .main{
-    background: lightgrey;
-    margin: 1em 0;
+    margin: 0 0 1em;
     text-align: center;
+    position: relative;
+    z-index: 2;
+
 }
 
 .seccion{
     width: 100%;
     min-height: 88vh;
-    background:  lightblue;
+    
     /* margin: 1em 0; */
     text-align: center;
 
@@ -142,8 +192,7 @@ body {
 .seccion .info{
     font-size:1.2em ;
 }
-.seccion .circulos{}
-.seccion .circulo{}
+
 .seccion .ul{
     /* background: red; */
     margin: 2em 0 0;
@@ -171,7 +220,6 @@ body {
     border-color: black;
 
 }
-
 .seccion .h2{
     font-family: var(--tipo-titular);
     font-weight: 600;
@@ -184,7 +232,6 @@ body {
     font-size: 4.3em;
     
 }
-
 .seccion .p{}
 .seccion .grid{
     width: 90%;
@@ -205,6 +252,7 @@ body {
     align-items: center;
 
     position: relative;
+    overflow: hidden;
 }
 .seccion .a{}
 .seccion .figure{
@@ -229,15 +277,18 @@ body {
    justify-content: center;
    align-items: center;
 
-   color: black;
+   color: white;
    font-size: 1.8em;
    font-family: var(--tipo-titular);
    font-style: italic;
    opacity: 0;
+   transform: translateZ(1) scale(1.2%);
    transition: all .5s ease;
-}
-.seccion .h4:hover{
+} 
+.seccion .article:hover .h4{
     opacity: 1;
+    transform: translateZ(1) scale(1%);
+
 }
 .works .h2{
     margin: 0 0 1rem;
@@ -249,13 +300,14 @@ body {
 }
 .about .p{
     max-width: 40em;
-    background: lime;
-    margin: 0 0 1em;
+    /* background: lime; */
+    margin: 0 0 2rem;
+    font-size: 1.5em ;
     text-align: left;
 }
 .about .rrss{
     width: 100%;
-    background: lightgreen;
+    /* background: lightgreen; */
 
     display: flex;
     flex-flow: row wrap;
@@ -263,15 +315,15 @@ body {
     align-items: center;
 }
 .about .li{
-    background: orange;
+    /* background: orange; */
     margin: 0 1em;
 
 }
 .about .a{}
 .about .svg{
-    width: 2em;
-    height: 2em;
-    background: red;
+    width: 3em;
+    height: 3em;
+    /* background: red; */
 }
 
 .footer{
@@ -282,3 +334,13 @@ body {
 
 }
 .footer .span{}
+
+@keyframes circulo1{
+    from{
+        transform:rotate(0deg) scale(3);
+    }
+    to{
+        transform:rotate(360deg) scale(3)
+    }
+
+}
